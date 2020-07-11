@@ -1,6 +1,17 @@
 package com.zabud.moneybox.models;
 
-public class MoneyBox {
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.Entity;
+import java.io.Serializable;
+
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+public class MoneyBox implements Serializable {
 
     // -----------------------------------------------------------------
     // attributes
@@ -9,25 +20,31 @@ public class MoneyBox {
     /**
      * number of coins of $50 there are in the MoneyBox.
      */
-    private int numeroMonedas50;
+    private int numberCoins50;
 
     /**
      * number of coins of $100 there are in the MoneyBox.
      */
-    private int numeroMonedas100;
+    private int numberCoins100;
 
     /**
      * number of coins of $200 there are in the MoneyBox.
      */
-    private int numeroMonedas200;
+    private int numberCoins200;
 
     /**
      *number of coins of $500 there are in the MoneyBox.
      */
-    private int numeroMonedas500;
+    private int numberCoins500;
 
     /**
      *number of coins of $1000 there are in the MoneyBox.
      */
-    private int numeroMonedas1000;
+    private int numberCoins1000;
+
+    /**
+     *total money in the MoneyBox.
+     */
+    private int totalMoney;
+
 }
