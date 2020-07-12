@@ -23,7 +23,8 @@ public class MoneyBoxService implements IMoneyBoxService {
                 moneyBox.getNumberCoins50() * Variables.CINCUENTA.getValue();
     }
 
-    public void initCoins(int coin) {
+    public String initCoins(int coin) {
+        String into = "Ingreso correctamente el dinero";
         switch (coin) {
             case 1000:
                 moneyBox.addCoins1000();
@@ -40,7 +41,10 @@ public class MoneyBoxService implements IMoneyBoxService {
             case 50:
                 moneyBox.addCoins50();
                 break;
+            default:
+                into = "El dinero no esta entre el rango permitido";
         }
+        return into;
     }
 
     @Override
@@ -49,4 +53,46 @@ public class MoneyBoxService implements IMoneyBoxService {
                 moneyBox.getNumberCoins100() + moneyBox.getNumberCoins50();
     }
 
+    @Override
+    public int cantCoinsbyValue(int coin) {
+        return ValueMoney(0,coin);
+    }
+
+    @Override
+    public int calculateTotalMoneyByValueCoins(int coin) {
+        return ValueMoney(1,coin);
+    }
+
+    private int ValueMoney(int option, int coin) {
+        int quantityCoins = 0;
+        int valuecoin =0;
+        switch (coin) {
+            case 1000:
+                quantityCoins = moneyBox.getNumberCoins1000();
+                valuecoin = Variables.MIL.getValue();
+                break;
+            case 500:
+                quantityCoins = moneyBox.getNumberCoins500();
+                valuecoin = Variables.QUINIENTOS.getValue();
+                break;
+            case 200:
+                quantityCoins = moneyBox.getNumberCoins200();
+                valuecoin = Variables.DOSCIENTOS.getValue();
+                break;
+            case 100:
+                quantityCoins = moneyBox.getNumberCoins100();
+                valuecoin = Variables.CIEN.getValue();
+                break;
+            case 50:
+                quantityCoins = moneyBox.getNumberCoins50();
+                valuecoin = Variables.CINCUENTA.getValue();
+                break;
+
+        }
+        if(option==0){
+            return quantityCoins;
+        }else{
+            return  valuecoin*quantityCoins;
+        }
+    }
 }

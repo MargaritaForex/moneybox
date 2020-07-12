@@ -4,7 +4,11 @@ public interface IMoneyBoxService {
 
     public int calculateTotalMoney();
 
-    public void initCoins(int coin);
+    public String initCoins(int coin);
 
     public int cantTotalCoins();
+
+    public int cantCoinsbyValue(int coin);
+
+    public int calculateTotalMoneyByValueCoins(int coin);
 }

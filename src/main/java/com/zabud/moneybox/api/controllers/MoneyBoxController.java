@@ -22,12 +22,23 @@ public class MoneyBoxController {
     }
 
     @GetMapping("/addCoin/{coin}")
-    public void initMoneyBox(@PathVariable("coin") int coin){
-         money.initCoins(coin);
+    public String initMoneyBox(@PathVariable("coin") int coin){
+         return money.initCoins(coin);
     }
 
     @GetMapping("/quantityCoins")
     public int quantityCoins(){
         return money.cantTotalCoins();
     }
+
+    @GetMapping("/quantityCoinsByValue/{coin}")
+    public int quantityCoinsByValue(@PathVariable("coin") int coin){
+        return money.cantCoinsbyValue(coin);
+    }
+
+    @GetMapping("/TotalMoneyByValueCoins/{coin}")
+    public int TotalMoneyByValueCoins(@PathVariable("coin") int coin){
+        return money.calculateTotalMoneyByValueCoins(coin);
+    }
+
 }
