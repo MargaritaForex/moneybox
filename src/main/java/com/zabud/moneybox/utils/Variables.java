@@ -1,12 +1,15 @@
 package com.zabud.moneybox.utils;
 
 public enum Variables {
-    CINCUENTA("Cincuenta",50),
-    CIEN("cien",100),
-    DOCIENTOS("docientos",200),
-    QUINIENTOS("quinientos",500),
-    MIL("mil",1000);
+    CINCUENTA(50),
+    CIEN(100),
+    DOSCIENTOS(200),
+    QUINIENTOS(500),
+    MIL(1000);
 
-    Variables(String hhh, int i) {
-    }
+    private int value;
+
+    Variables(int value ) { this.value = value; }
+
+    public int getValue() {return this.value;}
 }
