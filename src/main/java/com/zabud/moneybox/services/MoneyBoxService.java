@@ -63,6 +63,15 @@ public class MoneyBoxService implements IMoneyBoxService {
         return ValueMoney(1,coin);
     }
 
+    @Override
+    public void breakMoneyBox() {
+        moneyBox.setNumberCoins50(0);
+        moneyBox.setNumberCoins100(0);
+        moneyBox.setNumberCoins200(0);
+        moneyBox.setNumberCoins500(0);
+        moneyBox.setNumberCoins1000(0);
+    }
+
     private int ValueMoney(int option, int coin) {
         int quantityCoins = 0;
         int valuecoin =0;

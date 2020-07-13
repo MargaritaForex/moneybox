@@ -11,4 +11,6 @@ public interface IMoneyBoxService {
     public int cantCoinsbyValue(int coin);
 
     public int calculateTotalMoneyByValueCoins(int coin);
+
+    public void breakMoneyBox();
 }
